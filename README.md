@@ -7,3 +7,7 @@ I am currently navigating the world of Economics, aiming to make significant con
 
 ## Repository Overview
 This repository contains my solutions to various LeetCode problems. The problems span across different topics and difficulty levels, showcasing my commitment to learning and enhancing my knowledge.
+
+## Let's Connect!
+I am always open to collaboration, learning, and growth. Feel free to connect with me on LinkedIn.
+
