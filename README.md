@@ -1,4 +1,4 @@
-rn# LeetCode-Wonderland
+# LeetCode-Wonderland
 
 Hello there! 👋 I am Tianyi Li, a Ph.D. candidate in Economics with a keen interest in Data Science. This repository is a reflection of my continuous effort to learn, grow, and hone my data skills by solving problems on LeetCode.
 
