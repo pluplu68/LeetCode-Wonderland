@@ -45,3 +45,34 @@ Explanation: Bob and George both have a condition that starts with DIAB1.
 📍SELECT *
 FROM patients
 WHERE conditions REGEXP '\\bDIAB1'
+
+
+🌟🌟Syntax:
+column_name REGEXP pattern
+
+🌟🌟Basic Usage:
+Matching a Specific Word:
+⭐️ To find rows where a column contains the word "apple" (ensuring it's a standalone word):
+SELECT * 
+FROM your_table 
+WHERE column_name REGEXP '[[:<:]]apple[[:>:]]';
+
+⭐️Case-insensitive Matching:
+In MySQL, the REGEXP operator is case-insensitive by default. 
+However, if using a database where it's case-sensitive, might need to use a flag or convert both the column and pattern to lowercase:
+SELECT * 
+FROM your_table 
+WHERE LOWER(column_name) REGEXP LOWER('pattern');
+
+⭐️Matching Any of Multiple Words:
+To match any of the words "apple", "banana", or "cherry":
+SELECT * 
+FROM your_table 
+WHERE column_name REGEXP 'apple|banana|cherry';
+
+❌Limitations and Differences:
+The exact syntax for REGEXP and the supported regular expression features can vary between database systems.
+Some databases, like PostgreSQL, use different operators (e.g., ~ for case-sensitive matching or ~* for case-insensitive matching) instead of REGEXP.
+The performance of REGEXP can be slower than simpler operators like LIKE, especially on large datasets, as regular expressions are more computationally intensive.
+Not all SQL databases support the REGEXP operator, so always check the documentation for your specific database.
+In summary, while REGEXP provides powerful pattern-matching capabilities, it's important to use it judiciously and be aware of its potential performance implications. 
