@@ -1,0 +1,33 @@
+Given an integer array nums, find a 
+subarray
+ that has the largest product, and return the product.
+
+The test cases are generated so that the answer will fit in a 32-bit integer.
+
+ 
+
+Example 1:
+
+Input: nums = [2,3,-2,4]
+Output: 6
+Explanation: [2,3] has the largest product 6.
+Example 2:
+
+Input: nums = [-2,0,-1]
+Output: 0
+Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
+
+
+📍 def maxProduct(self, nums: List[int]) -> int:
+        result = max(nums)
+        currentMin, currentMax = 1,1
+
+        for n in nums:
+            tem = currentMax * n  #Within the loop, a temporary variable tem is calculated by multiplying currentMax by the current element n. This is done to preserve the previous currentMax value before it's updated in the next step.
+            currentMax = max(n*currentMax, n, n*currentMin) #updates the currentMax variable with the maximum of three values:
+                                                                n * currentMax: This represents the product of the current element n and the previous maximum product, effectively extending the subarray with the maximum product.
+                                                                n: This represents starting a new subarray with just the current element n.
+                                                                n * currentMin: This represents the product of the current element n and the previous minimum product. This is important because multiplying a negative number by a negative number can result in a positive number, so we need to keep track of the minimum product as well.
+            currentMin = min(tem, n, n*currentMin)
+            result = max(result, currentMax)
+        return result
