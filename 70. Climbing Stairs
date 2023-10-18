@@ -1,0 +1,31 @@
+You are climbing a staircase. It takes n steps to reach the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+Example 1:
+
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+Example 2:
+
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+
+
+📍     def climbStairs(self, n: int) -> int:
+        one, two = 1, 1 # keep track of the number of distinct ways to climb the stairs at the current step and the previous step.
+        for i in range(n-1): #calculate the number of ways to climb the stairs for each step from the 2nd step to the nth step. i-> control numbers of iteration
+            temp = one #creates a temporary variable temp and assigns it the value of one. This step is used to store the current value of one before it gets updated.
+            one = one + two # The new value of one represents the number of distinct ways to reach the current step.
+            two = temp #The two variable now represents the number of distinct ways to reach the previous step, which will be used in the next iteration.
+        return one #The final value of one represents the total number of distinct ways to climb the staircase with n steps.
+
+🌟In summary, this code uses a loop to calculate the number of distinct ways to climb a staircase with n steps by maintaining two variables (one and two) 
+that keep track of the number of ways at the current step and the previous step. It utilizes a Fibonacci-like approach to efficiently calculate the result.
+
